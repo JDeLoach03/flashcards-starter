@@ -81,4 +81,19 @@ describe('Round', function() {
         expect(round.incorrectGuess.length).to.equal(2)
     })
 
+    it('should be able to evaluate feedback of guess', function() {
+        const card1 = new Card(1, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+        const card2 = new Card(14, 'What type of protoype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+        const deck = new Deck([card1, card2])
+        const round = new Round(deck)
+
+
+        let turnFeedback = round.takeTurn('array') //should be correct
+        expect(turnFeedback).to.equal('correct')
+        let turnFeedback2 = round.takeTurn('iteration method') // should be incorrect
+        expect(turnFeedback2).to.equal('incorrect')
+        // expect(round.takeTurn()).to.equal('correct')
+    })
+
+    
 })
