@@ -34,34 +34,34 @@ describe('Turn', function() {
     })
 
     it('should be able to return the user card', function() {
-        const cardChosen = turn.returnCard()
+        const cardChosen = turn.returnCard();
         expect(cardChosen).to.equal(card);
     })
 
     it('should be able to evaluate if guess is correct', function () {
-        const checkGuess = turn.evaluateGuess()
-        expect(checkGuess).to.be.true
+        const checkGuess = turn.evaluateGuess();
+        expect(checkGuess).to.be.true;
     })
 
     it('should be able to evaluate if guess is incorrect', function() {
         let turn = new Turn('function', card);
-        const checkGuess = turn.evaluateGuess()
-        expect(checkGuess).to.be.false
+        const checkGuess = turn.evaluateGuess();
+        expect(checkGuess).to.be.false;
     })
 
     it('should be able to give feedback if your answer is correct', function() {
-        const checkGuess = turn.evaluateGuess()
+        const checkGuess = turn.evaluateGuess();
         const correctFeedback = turn.giveFeedback();
-        expect(checkGuess).to.be.true
-        expect(correctFeedback).to.equal('correct')
+        expect(checkGuess).to.be.true;
+        expect(correctFeedback).to.equal('correct');
     })
 
     it ('should be able to give feedback if your answer is incorrect', function() {
         let  turn = new Turn('function', card);
-        const checkGuess = turn.evaluateGuess()
+        const checkGuess = turn.evaluateGuess();
         const correctFeedback = turn.giveFeedback();
-        expect(checkGuess).to.be.false
-        expect(correctFeedback).to.equal('incorrect')
+        expect(checkGuess).to.be.false;
+        expect(correctFeedback).to.equal('incorrect');
     })
 
     
