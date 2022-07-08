@@ -31,45 +31,45 @@ describe('Round', function() {
     }); 
 
     it('should hold all of the cards within the deck array', function() {
-        expect(round.deck).to.be.an('array')
-        expect(round.deck).to.equal(deck.cards)
-        expect(round.deck[1]).to.equal(deck.cards[1])
+        expect(round.deck).to.be.an('array');
+        expect(round.deck).to.equal(deck.cards);
+        expect(round.deck[1]).to.equal(deck.cards[1]);
     })
 
     it('should return the current card in play', function() {
-        expect(round.returnCurrentCard()).to.equal(round.deck[0])
+        expect(round.returnCurrentCard()).to.equal(round.deck[0]);
     })
 
     it('should be able to hold incorrect guesses', function() { 
-        expect(round.incorrectGuess).to.deep.equal([])
+        expect(round.incorrectGuess).to.deep.equal([]);
     })
 
     it('should start with no turns', function() {
-        expect(round.turns).to.equal(0)
+        expect(round.turns).to.equal(0);
     })
 
     it('should be able to store the id for the incorrect guess', function() {
-        round.takeTurn('function')
-        round.takeTurn('iteration method')
-        expect(round.incorrectGuess.length).to.equal(2)
+        round.takeTurn('function');
+        round.takeTurn('iteration method');
+        expect(round.incorrectGuess.length).to.equal(2);
     })
 
     it('should be able to evaluate feedback of guess', function() {
-        let turnFeedback = round.takeTurn('array') 
-        expect(turnFeedback).to.equal('correct')
-        let turnFeedback2 = round.takeTurn('iteration method') 
-        expect(turnFeedback2).to.equal('incorrect')
+        let turnFeedback = round.takeTurn('array');
+        expect(turnFeedback).to.equal('correct');
+        let turnFeedback2 = round.takeTurn('iteration method');
+        expect(turnFeedback2).to.equal('incorrect');
         
     })
 
     it('should be able to calculate correct guesses', function() { 
-       round.takeTurn('array')// correct
-       round.takeTurn('wild banana') //incorrect
+       round.takeTurn('array');
+       round.takeTurn('wild banana');
     })
 
     it('should be able to end the round and show your percentage', function() {
-        round.takeTurn('array')// correct
-        round.takeTurn('wild banana') //incorrect
-        expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
+        round.takeTurn('array');
+        round.takeTurn('wild banana');
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
     })  
 })
