@@ -26,6 +26,16 @@ class Round {
 
         return turn.giveFeedback()
     }
+
+    calculatePercentageCorrect() {
+        return ((this.turns - this.incorrectGuess.length) / this.turns) * 100
+    }
+
+    endRound() {
+        console.log(`** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`)
+        return `** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`
+    }
+
 }
 
 
